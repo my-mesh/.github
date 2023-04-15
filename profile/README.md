@@ -3,6 +3,7 @@ Das Projekt soll die ersten Schritte der Vernetzung von Eingebetten Systemen erl
 
 # Projektaufteilung
 - [Server](https://github.com/my-mesh/server)
+- [Mesh](https://github.com/my-mesh/mesh)
 - [Sensoren](https://github.com/my-mesh/sensor)
 - [Poster](https://github.com/my-mesh/poster)
 - [Bilder](https://github.com/my-mesh/pictures)
@@ -20,7 +21,7 @@ Das Projekt soll die ersten Schritte der Vernetzung von Eingebetten Systemen erl
 Über den Raspberry Pi läuft sowohl der Webserver, Bildschirm, LED-Ring und der Mesh Master. Der Webserver und Mesh Master werden jeweils als eigenständige System Service hochgefahren.
 
 ## NRF24 Chip
-Der NRF24 Chip ermöglicht die Kommunikation mit anderen Nodes. Hierbei wird dieser vom Mesh Master Script benutzt.
+Der NRF24 Chip ermöglicht die Kommunikation des Mesh Masters mit anderen Nodes im System.
 
 <table>
     <tbody>
