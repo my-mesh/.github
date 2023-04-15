@@ -16,6 +16,9 @@ Das Projekt soll die ersten Schritte der Vernetzung von Eingebetten Systemen erl
 - Arduino Nano
   - NRF24 Chips
   - Sensoren
+  
+# NRF24
+Das Projekt nutzt NRF24, ein bidirektionales Kommunikationsprotokoll für eine kostengünstige und auf wenig Lesitung laufender Kommunikation. Das System, so wie es in diesem Projekt verwendet wird, besteht aus RF24, welches nach dem OSI-Modell Schicht 2 und damit die physische Addressierung belegt. Die nächste Stufe ist das RF24-Network auf der Schicht 3, welches die Nachrichten durch das gesamte Netzwerk vermittelt. Das RF24-Mesh liegt auf Schicht 7. Damit wird die Anwendung bedient und bildet in diesem Projekt auch den größten Anteil.
 
 # Raspberry Pi
 Über den Raspberry Pi läuft sowohl der Webserver, Bildschirm, LED-Ring und der Mesh Master. Der Webserver und Mesh Master werden jeweils als eigenständige System Service hochgefahren.
