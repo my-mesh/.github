@@ -8,37 +8,91 @@ Das Projekt soll die ersten Schritte der Vernetzung von Eingebetten Systemen erl
 - [Bilder](https://github.com/my-mesh/pictures)
 
 # Geräteliste
-- Raspberry Pi
-  - NRF24 Chips
-  - GC9A01 Bildschirm
-  - Neopixel Ring
+- [Raspberry Pi](#raspberry-pi)
+  - [NRF24 Chip](#nrf24-chip)
+  - [GC9A01 Bildschirm](#gc9a01-bildschirm)
+  - [Neopixel Ring](#neopixel-ring)
 - Arduino Nano
   - NRF24 Chips
   - Sensoren
 
 # Raspberry Pi
-Über den Raspberry Pi läuft sowohl der Webserver, Bildschirm, LED-Ring und der Mesh Master. Der Webserver und Mesh Master werden jeweils als eigenständige System Service automatisch beim hochfahren gestartet.
+Über den Raspberry Pi läuft sowohl der Webserver, Bildschirm, LED-Ring und der Mesh Master. Der Webserver und Mesh Master werden jeweils als eigenständige System Service hochgefahren.
 
-Bildschirm:
-VCC	3.3V	1
-GND	GND	6
-DIN	10 (spi0 MOSI)	19
-CLK	11 (spi0 SCLK)	23
-CS	8 (spi0 CE0)	24
-DC	25	22
-RST	27	13
-BL	18 (pcm clock)	12
+## NRF24 Chip
+Der NRF24 Chip ermöglicht die Kommunikation mit anderen Nodes. Hierbei wird dieser vom Mesh Master Script benutzt.
 
-Mesh:
-VCC 3.3V 17
-GND GND 39
-CE CE 15
-CSN CSN 11
-SCK SCK 40
-MOSI MOSI 38
-MISO MISO 35
+<table>
+    <tbody>
+        <tr>
+            <td>VCC</td><td>3.3V</td><td>17</td>
+        </tr>
+        <tr>
+            <td>GND</td><td>GND</td><td>39</td>
+        </tr>
+        <tr>
+            <td>CE</td><td>CE</td><td>15</td>
+        </tr>
+        <tr>
+            <td>CSN</td><td>CSN</td><td>11</td>
+        </tr>
+        <tr>
+            <td>SCK</td><td></td><td>40</td>
+        </tr>
+        <tr>
+            <td>MOSI</td><td>25</td><td>38</td>
+        </tr>
+        <tr>
+            <td>MISO</td><td>27</td><td>35</td>
+        </tr>
+    </tbody>
+</table>
 
-Neopixel:
-VCC 5V 2
-GND GND 14
-GPIO12 32
+## GC9A01 Bildschirm
+Der Bildschirm ist über SPI an den Raspberry Pi angeschlossen und spiegelt mithilfe des [Raspberry Pi Framebuffer Copy](https://github.com/tasanakorn/rpi-fbcp) den HDMI Output vom Raspberry Pi auf den Bildschirm. Dadurch kann das Interface als Unterseite auf dem Webserver gehostet werden und ermöglicht ein einfachs anpassen und austauschen der Dargestellten Seite.
+
+<table>
+    <tbody>
+        <tr>
+            <td>VCC</td><td>3.3V</td><td>1</td>
+        </tr>
+        <tr>
+            <td>GND</td><td>GND</td><td>6</td>
+        </tr>
+        <tr>
+            <td>DIN</td><td>10 (spi0 MOSI)</td><td>19</td>
+        </tr>
+        <tr>
+            <td>CLK</td><td>11 (spi0 SCLK)</td><td>23</td>
+        </tr>
+        <tr>
+            <td>CS</td><td>8 (spi0 CE0)</td><td>24</td>
+        </tr>
+        <tr>
+            <td>DC</td><td>25</td><td>22</td>
+        </tr>
+        <tr>
+            <td>RST</td><td>27</td><td>13</td>
+        </tr>
+        <tr>
+            <td>BL</td><td>18 (pcm clock)</td><td>12</td>
+        </tr>
+    </tbody>
+</table>
+
+## Neopixel Ring
+Der Neopixel Ring wird auch über den WebServer gesteuert
+
+<table>
+    <tbody>
+        <tr>
+            <td>VCC</td><td>5V</td><td>2</td>
+        </tr>
+        <tr>
+            <td>GND</td><td>GND</td><td>14</td>
+        </tr>
+        <tr>
+            <td>GPIO</td><td>GPIO</td><td>32</td>
+        </tr>
+    </tbody>
+</table>
